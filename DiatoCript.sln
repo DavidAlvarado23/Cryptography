@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiatoCriptFront", "DiatoCript\DiatoCriptFront.csproj", "{7C21FB86-B9FD-4ED7-8006-54B939D333B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiatoCryptBack", "DiatoCryptBack\DiatoCryptBack.csproj", "{3A7DA9A8-8ACA-4404-B80F-888A42D5AACF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C21FB86-B9FD-4ED7-8006-54B939D333B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C21FB86-B9FD-4ED7-8006-54B939D333B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C21FB86-B9FD-4ED7-8006-54B939D333B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C21FB86-B9FD-4ED7-8006-54B939D333B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A7DA9A8-8ACA-4404-B80F-888A42D5AACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A7DA9A8-8ACA-4404-B80F-888A42D5AACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A7DA9A8-8ACA-4404-B80F-888A42D5AACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A7DA9A8-8ACA-4404-B80F-888A42D5AACF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E012793B-7190-4B4E-B4B1-C950603FA8B8}
+	EndGlobalSection
+EndGlobal

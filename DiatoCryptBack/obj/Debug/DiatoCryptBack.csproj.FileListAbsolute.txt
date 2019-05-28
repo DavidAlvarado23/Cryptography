@@ -1,0 +1,6 @@
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCryptBack\bin\Debug\DiatoCryptBack.dll
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCryptBack\bin\Debug\DiatoCryptBack.pdb
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCryptBack\obj\Debug\DiatoCryptBack.csprojAssemblyReference.cache
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCryptBack\obj\Debug\DiatoCryptBack.csproj.CoreCompileInputs.cache
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCryptBack\obj\Debug\DiatoCryptBack.dll
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCryptBack\obj\Debug\DiatoCryptBack.pdb
