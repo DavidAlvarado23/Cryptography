@@ -6,6 +6,7 @@
 /DiatoCryptBack/bin
 /DiatoCryptBack/obj
 
+
 .dll*
 .cache*
 .exe*
