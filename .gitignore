@@ -1,0 +1,12 @@
+/.vs
+
+/DiatoCrypt/bin
+/DiatoCrypt/obj
+
+/DiatoCryptBack/bin
+/DiatoCryptBack/obj
+
+.dll*
+.cache*
+.exe*
+.pdb*
