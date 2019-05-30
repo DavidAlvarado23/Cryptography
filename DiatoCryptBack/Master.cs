@@ -56,25 +56,40 @@ namespace DiatoCryptBack
 
         public String encryptTDESKeyWithSlavePublicKey()
         {
-            tdesIVEncrypted = Convert.ToBase64String(slaveRSA.Encrypt(TDES.IV, false));
+            if (slaveRSA != null)
+            {
+                tdesIVEncrypted = Convert.ToBase64String(slaveRSA.Encrypt(TDES.IV, false));
 
-            var bytesPlainTextData = System.Text.Encoding.Unicode.GetBytes(tdesKey);
-            return Convert.ToBase64String(slaveRSA.Encrypt(bytesPlainTextData, false));
+                var bytesPlainTextData = System.Text.Encoding.Unicode.GetBytes(tdesKey);
+                return Convert.ToBase64String(slaveRSA.Encrypt(bytesPlainTextData, false));
+            }
+            return null;
         }
 
         public String decryptText(String encryptedText)
         {
-            var textInBytes = Convert.FromBase64String(encryptedText);
-
-            ICryptoTransform decryptor = TDES.CreateDecryptor(TDES.Key, TDES.IV);
-            using (MemoryStream ms = new MemoryStream(textInBytes))
+            if (encryptedText != null && !encryptedText.Equals(""))
             {
-                using (CryptoStream cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
+                try
                 {
-                    using (StreamReader reader = new StreamReader(cs))
-                        return reader.ReadToEnd();
+                    var textInBytes = Convert.FromBase64String(encryptedText);
+
+                    ICryptoTransform decryptor = TDES.CreateDecryptor(TDES.Key, TDES.IV);
+                    using (MemoryStream ms = new MemoryStream(textInBytes))
+                    {
+                        using (CryptoStream cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
+                        {
+                            using (StreamReader reader = new StreamReader(cs))
+                                return reader.ReadToEnd();
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    throw new Exception("No se pudo realizar la acción. Verifique que las claves sean las correctas");
                 }
             }
+            return encryptedText;
         }
     }
 }

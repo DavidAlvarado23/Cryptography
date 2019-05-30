@@ -16,7 +16,7 @@ namespace DiatoCript
 
         private CryptoSystem()
         {
-            _formCount = 0;       
+            _formCount = 0;
             master = new Master();
             master.Closed += new EventHandler(OnFormClosed);
             master.Closing += new CancelEventHandler(OnFormClosing);

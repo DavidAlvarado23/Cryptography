@@ -22,7 +22,7 @@ namespace DiatoCryptBack
 
         public void generatedSerializedKeys()
         {
-            var sw = new System.IO.StringWriter();
+            var sw = new StringWriter();
             var xs = new System.Xml.Serialization.XmlSerializer(typeof(RSAParameters));
 
             var pubKey = RSA.ExportParameters(false);
@@ -36,34 +36,49 @@ namespace DiatoCryptBack
 
         public String decryptTDESKey(String encryptedData)
         {
-            var bytesCypherText = Convert.FromBase64String(encryptedData);
-            RSA.ImportParameters(RSA.ExportParameters(true));
+            if (encryptedData != null && !encryptedData.Equals(""))
+            {
+                try
+                {
+                    var bytesCypherText = Convert.FromBase64String(encryptedData);
+                    RSA.ImportParameters(RSA.ExportParameters(true));
 
-            var bytesPlainTextData = RSA.Decrypt(bytesCypherText, false);
+                    var bytesPlainTextData = RSA.Decrypt(bytesCypherText, false);
 
-            return Encoding.Unicode.GetString(bytesPlainTextData);
+                    return Encoding.Unicode.GetString(bytesPlainTextData);
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("No se pudo realizar la acción. Verifique que haya una clave correcta.");
+                }
+            }
+            return null;
         }
 
         public String encryptText(String text, String tdesKey)
         {
-            TDES.Key = Convert.FromBase64String(tdesKey);
-
-            byte[] iv = Encoding.Unicode.GetBytes(decryptTDESKey(tdesIVMasterEncrypted));
-
-            TDES.IV = Convert.FromBase64String(Convert.ToBase64String(iv));
-
-            ICryptoTransform encryptor = TDES.CreateEncryptor(TDES.Key, TDES.IV);
-
-            MemoryStream ms = new MemoryStream();
-
-            using (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+            if (tdesKey != null && !tdesKey.Equals("") && text != null && !text.Equals(""))
             {
-                using (StreamWriter sw = new StreamWriter(cs))
-                    sw.Write(text);
-                byte[] encrypted = ms.ToArray();
+                TDES.Key = Convert.FromBase64String(tdesKey);
 
-                return Convert.ToBase64String(encrypted);
+                byte[] iv = Encoding.Unicode.GetBytes(decryptTDESKey(tdesIVMasterEncrypted));
+
+                TDES.IV = Convert.FromBase64String(Convert.ToBase64String(iv));
+
+                ICryptoTransform encryptor = TDES.CreateEncryptor(TDES.Key, TDES.IV);
+
+                MemoryStream ms = new MemoryStream();
+
+                using (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+                {
+                    using (StreamWriter sw = new StreamWriter(cs))
+                        sw.Write(text);
+                    byte[] encrypted = ms.ToArray();
+
+                    return Convert.ToBase64String(encrypted);
+                }
             }
+            return null;
         }
     }
 }
