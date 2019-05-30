@@ -46,7 +46,14 @@ namespace DiatoCript
             DialogResult dr = fileSelector.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                importedSlavePublicKeyLabel.Text = masterController.importXMLWithPublicKey(fileSelector.FileName);
+                try
+                {
+                    importedSlavePublicKeyLabel.Text = masterController.importXMLWithPublicKey(fileSelector.FileName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -76,7 +83,14 @@ namespace DiatoCript
 
         private void DecryptTextButton_Click(object sender, EventArgs e)
         {
-            decryptedImportedMessageLabel.Text = masterController.decryptText(importedEncryptedMessageLabel.Text);
+            try
+            {
+                decryptedImportedMessageLabel.Text = masterController.decryptText(importedEncryptedMessageLabel.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
     }

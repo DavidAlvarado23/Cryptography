@@ -71,7 +71,6 @@ namespace DiatoCryptBack
                         new XElement("tdes1iv", master.tdesIVEncrypted)
                     )
                 ).Save("tdesencriptado.xml");
-                Console.WriteLine(master.tdesIVEncrypted);
 
                 return true;
             }
