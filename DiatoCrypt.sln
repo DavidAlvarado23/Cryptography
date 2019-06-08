@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiatoCriptFront", "DiatoCript\DiatoCriptFront.csproj", "{7C21FB86-B9FD-4ED7-8006-54B939D333B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiatoCryptFront", "DiatoCript\DiatoCryptFront.csproj", "{7C21FB86-B9FD-4ED7-8006-54B939D333B9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiatoCryptBack", "DiatoCryptBack\DiatoCryptBack.csproj", "{3A7DA9A8-8ACA-4404-B80F-888A42D5AACF}"
 EndProject

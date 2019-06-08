@@ -23,7 +23,10 @@ namespace DiatoCript
 
         private void generateTDESKeyButton_Click(object sender, EventArgs e)
         {
-            masterTDESKeyLabel.Text = masterController.generateTDESKey();
+            string[] keys = masterController.generateTDESKey();
+            masterTDESKey1Label.Text = keys[0];
+            masterTDESKey2Label.Text = keys[1];
+            masterTDESKey3Label.Text = keys[2];
         }
 
         private void generateRSAKeysMasterButton_Click(object sender, EventArgs e)
@@ -59,13 +62,23 @@ namespace DiatoCript
 
         private void encryptTDESKeywithRSAButton_Click(object sender, EventArgs e)
         {
-            encryptedKeyLabel.Text = masterController.encryptTDESKeyWithSlavePublicKey();
+            string[] encryptedData = masterController.encryptTDESKeyWithSlavePublicKey();
+            if (encryptedData != null)
+            {
+                encryptedKey1Label.Text = encryptedData[0];
+                encryptedKey2Label.Text = encryptedData[1];
+                encryptedKey3Label.Text = encryptedData[2];
+            }
+            else
+            {
+                MessageBox.Show("No se encontró clave pública de esclavo");
+            }
         }
 
         private void exportXMLWithEncryptedTDESButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
-                (masterController.exportXMLWithEncryptedTDES(encryptedKeyLabel.Text)) ?
+                (masterController.exportXMLWithEncryptedTDES(encryptedKey1Label.Text, encryptedKey2Label.Text, encryptedKey3Label.Text)) ?
                 "XML creado en " + Environment.CurrentDirectory + @"\tdesencriptado.xml" :
                 "XML no se pudo crear, verifique que la clave no este vacía.");
         }
