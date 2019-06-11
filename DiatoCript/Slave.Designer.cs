@@ -224,7 +224,7 @@
             this.EncryptTextButton.FlatAppearance.BorderSize = 0;
             this.EncryptTextButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.EncryptTextButton.Font = new System.Drawing.Font("Segoe UI Historic", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EncryptTextButton.Location = new System.Drawing.Point(23, 562);
+            this.EncryptTextButton.Location = new System.Drawing.Point(23, 568);
             this.EncryptTextButton.Name = "EncryptTextButton";
             this.EncryptTextButton.Size = new System.Drawing.Size(518, 29);
             this.EncryptTextButton.TabIndex = 12;

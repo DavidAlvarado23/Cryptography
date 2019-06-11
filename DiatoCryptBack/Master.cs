@@ -84,13 +84,21 @@ namespace DiatoCryptBack
             return null;
         }
 
+        private byte[] fromHexToByte(String hex)
+        {
+            return Enumerable.Range(0, hex.Length)
+                     .Where(x => x % 2 == 0)
+                     .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+                     .ToArray();
+        }
+
         public String decryptText(String encryptedText)
         {
             if (encryptedText != null && !encryptedText.Equals(""))
             {
                 try
                 {
-                    var textInBytes = Convert.FromBase64String(encryptedText);
+                    var textInBytes = fromHexToByte(encryptedText);
 
                     ICryptoTransform decryptor = TDES.CreateDecryptor(TDES.Key, TDES.IV);
                     using (MemoryStream ms = new MemoryStream(textInBytes))

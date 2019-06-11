@@ -74,7 +74,7 @@ namespace DiatoCryptBack
             if (encryptedText != null)
             {
                 new XDocument(
-                    new XElement("Resultado_del_texto",
+                    new XElement("root",
                         new XElement("textoe", encryptedText)
                     )
                 ).Save("textoencriptado.xml");
