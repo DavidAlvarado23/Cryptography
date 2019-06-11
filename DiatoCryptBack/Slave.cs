@@ -88,7 +88,7 @@ namespace DiatoCryptBack
                         sw.Write(text);
                     byte[] encrypted = ms.ToArray();
 
-                    return Convert.ToBase64String(encrypted);
+                    return BitConverter.ToString(encrypted).Replace("-", "");
                 }
             }
             return null;

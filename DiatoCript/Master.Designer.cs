@@ -134,6 +134,7 @@
             // 
             this.importedEncryptedMessageLabel.AutoSize = true;
             this.importedEncryptedMessageLabel.Location = new System.Drawing.Point(27, 634);
+            this.importedEncryptedMessageLabel.MaximumSize = new System.Drawing.Size(540, 0);
             this.importedEncryptedMessageLabel.Name = "importedEncryptedMessageLabel";
             this.importedEncryptedMessageLabel.Size = new System.Drawing.Size(0, 13);
             this.importedEncryptedMessageLabel.TabIndex = 17;
@@ -223,7 +224,7 @@
             this.importXMLMessageButton.FlatAppearance.BorderSize = 0;
             this.importXMLMessageButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.importXMLMessageButton.Font = new System.Drawing.Font("Segoe UI Historic", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.importXMLMessageButton.Location = new System.Drawing.Point(23, 592);
+            this.importXMLMessageButton.Location = new System.Drawing.Point(23, 595);
             this.importXMLMessageButton.Name = "importXMLMessageButton";
             this.importXMLMessageButton.Size = new System.Drawing.Size(195, 29);
             this.importXMLMessageButton.TabIndex = 8;
@@ -237,7 +238,7 @@
             this.exportXMLWithEncryptedTDESButton.FlatAppearance.BorderSize = 0;
             this.exportXMLWithEncryptedTDESButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.exportXMLWithEncryptedTDESButton.Font = new System.Drawing.Font("Segoe UI Historic", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exportXMLWithEncryptedTDESButton.Location = new System.Drawing.Point(23, 560);
+            this.exportXMLWithEncryptedTDESButton.Location = new System.Drawing.Point(23, 565);
             this.exportXMLWithEncryptedTDESButton.Name = "exportXMLWithEncryptedTDESButton";
             this.exportXMLWithEncryptedTDESButton.Size = new System.Drawing.Size(529, 26);
             this.exportXMLWithEncryptedTDESButton.TabIndex = 7;
