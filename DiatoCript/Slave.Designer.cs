@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-
             this.panel2 = new System.Windows.Forms.Panel();
-            this.decryptedMasterTDESKeyLabel = new System.Windows.Forms.Label();
-            this.importedMasterTDESKeyLabel = new System.Windows.Forms.Label();
+            this.importedMasterTDESKey3Label = new System.Windows.Forms.Label();
+            this.importedMasterTDESKey2Label = new System.Windows.Forms.Label();
+            this.decryptedMasterTDESKey3Label = new System.Windows.Forms.Label();
+            this.decryptedMasterTDESKey2Label = new System.Windows.Forms.Label();
+            this.encryptedTextLabel = new System.Windows.Forms.Label();
+            this.decryptedMasterTDESKey1Label = new System.Windows.Forms.Label();
+            this.importedMasterTDESKey1Label = new System.Windows.Forms.Label();
             this.slavePrivateKeyLabel = new System.Windows.Forms.Label();
             this.slavePublicKeyLabel = new System.Windows.Forms.Label();
             this.textToEncryptInput = new System.Windows.Forms.RichTextBox();
@@ -40,7 +43,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.exportMessageButton = new System.Windows.Forms.Button();
-            this.encryptedTextLabel = new System.Windows.Forms.Label();
             this.EncryptTextButton = new System.Windows.Forms.Button();
             this.decryptTDESButton = new System.Windows.Forms.Button();
             this.importTDESKeyInXMLButton = new System.Windows.Forms.Button();
@@ -50,30 +52,18 @@
             this.fileSelector = new System.Windows.Forms.OpenFileDialog();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-
-            // 
-            // Form2
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(590, 776);
-            this.Controls.Add(this.panel2);
-            this.Name = "Slave";
-            this.Text = "Slave";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.ResumeLayout(false);
-
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Honeydew;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.importedMasterTDESKey3Label);
+            this.panel2.Controls.Add(this.importedMasterTDESKey2Label);
+            this.panel2.Controls.Add(this.decryptedMasterTDESKey3Label);
+            this.panel2.Controls.Add(this.decryptedMasterTDESKey2Label);
             this.panel2.Controls.Add(this.encryptedTextLabel);
-            this.panel2.Controls.Add(this.decryptedMasterTDESKeyLabel);
-            this.panel2.Controls.Add(this.importedMasterTDESKeyLabel);
+            this.panel2.Controls.Add(this.decryptedMasterTDESKey1Label);
+            this.panel2.Controls.Add(this.importedMasterTDESKey1Label);
             this.panel2.Controls.Add(this.slavePrivateKeyLabel);
             this.panel2.Controls.Add(this.slavePublicKeyLabel);
             this.panel2.Controls.Add(this.textToEncryptInput);
@@ -92,23 +82,71 @@
             this.panel2.Size = new System.Drawing.Size(567, 752);
             this.panel2.TabIndex = 1;
             // 
-            // decryptedMasterTDESKeyLabel
+            // importedMasterTDESKey3Label
             // 
-            this.decryptedMasterTDESKeyLabel.AutoSize = true;
-            this.decryptedMasterTDESKeyLabel.Location = new System.Drawing.Point(235, 310);
-            this.decryptedMasterTDESKeyLabel.MaximumSize = new System.Drawing.Size(330, 0);
-            this.decryptedMasterTDESKeyLabel.Name = "decryptedMasterTDESKeyLabel";
-            this.decryptedMasterTDESKeyLabel.Size = new System.Drawing.Size(0, 13);
-            this.decryptedMasterTDESKeyLabel.TabIndex = 17;
+            this.importedMasterTDESKey3Label.AutoSize = true;
+            this.importedMasterTDESKey3Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.927273F);
+            this.importedMasterTDESKey3Label.Location = new System.Drawing.Point(179, 334);
+            this.importedMasterTDESKey3Label.MaximumSize = new System.Drawing.Size(385, 0);
+            this.importedMasterTDESKey3Label.Name = "importedMasterTDESKey3Label";
+            this.importedMasterTDESKey3Label.Size = new System.Drawing.Size(0, 13);
+            this.importedMasterTDESKey3Label.TabIndex = 22;
             // 
-            // importedMasterTDESKeyLabel
+            // importedMasterTDESKey2Label
             // 
-            this.importedMasterTDESKeyLabel.AutoSize = true;
-            this.importedMasterTDESKeyLabel.Location = new System.Drawing.Point(233, 235);
-            this.importedMasterTDESKeyLabel.MaximumSize = new System.Drawing.Size(330, 0);
-            this.importedMasterTDESKeyLabel.Name = "importedMasterTDESKeyLabel";
-            this.importedMasterTDESKeyLabel.Size = new System.Drawing.Size(0, 13);
-            this.importedMasterTDESKeyLabel.TabIndex = 16;
+            this.importedMasterTDESKey2Label.AutoSize = true;
+            this.importedMasterTDESKey2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.927273F);
+            this.importedMasterTDESKey2Label.Location = new System.Drawing.Point(179, 286);
+            this.importedMasterTDESKey2Label.MaximumSize = new System.Drawing.Size(385, 0);
+            this.importedMasterTDESKey2Label.Name = "importedMasterTDESKey2Label";
+            this.importedMasterTDESKey2Label.Size = new System.Drawing.Size(0, 13);
+            this.importedMasterTDESKey2Label.TabIndex = 21;
+            // 
+            // decryptedMasterTDESKey3Label
+            // 
+            this.decryptedMasterTDESKey3Label.AutoSize = true;
+            this.decryptedMasterTDESKey3Label.Location = new System.Drawing.Point(233, 427);
+            this.decryptedMasterTDESKey3Label.MaximumSize = new System.Drawing.Size(330, 0);
+            this.decryptedMasterTDESKey3Label.Name = "decryptedMasterTDESKey3Label";
+            this.decryptedMasterTDESKey3Label.Size = new System.Drawing.Size(0, 13);
+            this.decryptedMasterTDESKey3Label.TabIndex = 20;
+            // 
+            // decryptedMasterTDESKey2Label
+            // 
+            this.decryptedMasterTDESKey2Label.AutoSize = true;
+            this.decryptedMasterTDESKey2Label.Location = new System.Drawing.Point(233, 407);
+            this.decryptedMasterTDESKey2Label.MaximumSize = new System.Drawing.Size(330, 0);
+            this.decryptedMasterTDESKey2Label.Name = "decryptedMasterTDESKey2Label";
+            this.decryptedMasterTDESKey2Label.Size = new System.Drawing.Size(0, 13);
+            this.decryptedMasterTDESKey2Label.TabIndex = 19;
+            // 
+            // encryptedTextLabel
+            // 
+            this.encryptedTextLabel.AutoSize = true;
+            this.encryptedTextLabel.Location = new System.Drawing.Point(29, 606);
+            this.encryptedTextLabel.MaximumSize = new System.Drawing.Size(520, 0);
+            this.encryptedTextLabel.Name = "encryptedTextLabel";
+            this.encryptedTextLabel.Size = new System.Drawing.Size(0, 13);
+            this.encryptedTextLabel.TabIndex = 18;
+            // 
+            // decryptedMasterTDESKey1Label
+            // 
+            this.decryptedMasterTDESKey1Label.AutoSize = true;
+            this.decryptedMasterTDESKey1Label.Location = new System.Drawing.Point(233, 385);
+            this.decryptedMasterTDESKey1Label.MaximumSize = new System.Drawing.Size(330, 0);
+            this.decryptedMasterTDESKey1Label.Name = "decryptedMasterTDESKey1Label";
+            this.decryptedMasterTDESKey1Label.Size = new System.Drawing.Size(0, 13);
+            this.decryptedMasterTDESKey1Label.TabIndex = 17;
+            // 
+            // importedMasterTDESKey1Label
+            // 
+            this.importedMasterTDESKey1Label.AutoSize = true;
+            this.importedMasterTDESKey1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.927273F);
+            this.importedMasterTDESKey1Label.Location = new System.Drawing.Point(179, 235);
+            this.importedMasterTDESKey1Label.MaximumSize = new System.Drawing.Size(385, 0);
+            this.importedMasterTDESKey1Label.Name = "importedMasterTDESKey1Label";
+            this.importedMasterTDESKey1Label.Size = new System.Drawing.Size(0, 13);
+            this.importedMasterTDESKey1Label.TabIndex = 16;
             // 
             // slavePrivateKeyLabel
             // 
@@ -130,7 +168,7 @@
             // 
             // textToEncryptInput
             // 
-            this.textToEncryptInput.Location = new System.Drawing.Point(139, 374);
+            this.textToEncryptInput.Location = new System.Drawing.Point(139, 457);
             this.textToEncryptInput.Name = "textToEncryptInput";
             this.textToEncryptInput.Size = new System.Drawing.Size(402, 99);
             this.textToEncryptInput.TabIndex = 15;
@@ -140,7 +178,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Historic", 7.854546F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(20, 376);
+            this.label7.Location = new System.Drawing.Point(20, 457);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(113, 17);
             this.label7.TabIndex = 13;
@@ -186,13 +224,13 @@
             this.EncryptTextButton.FlatAppearance.BorderSize = 0;
             this.EncryptTextButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.EncryptTextButton.Font = new System.Drawing.Font("Segoe UI Historic", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EncryptTextButton.Location = new System.Drawing.Point(23, 492);
+            this.EncryptTextButton.Location = new System.Drawing.Point(23, 562);
             this.EncryptTextButton.Name = "EncryptTextButton";
             this.EncryptTextButton.Size = new System.Drawing.Size(518, 29);
             this.EncryptTextButton.TabIndex = 12;
             this.EncryptTextButton.Text = "Encriptar texto algoritmo TDES y clave TDES desencriptada";
             this.EncryptTextButton.UseVisualStyleBackColor = false;
-           this.EncryptTextButton.Click += new System.EventHandler(this.EncryptTextButton_Click);
+            this.EncryptTextButton.Click += new System.EventHandler(this.EncryptTextButton_Click);
             // 
             // decryptTDESButton
             // 
@@ -200,7 +238,7 @@
             this.decryptTDESButton.FlatAppearance.BorderSize = 0;
             this.decryptTDESButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.decryptTDESButton.Font = new System.Drawing.Font("Segoe UI Historic", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.decryptTDESButton.Location = new System.Drawing.Point(23, 306);
+            this.decryptTDESButton.Location = new System.Drawing.Point(23, 386);
             this.decryptTDESButton.Name = "decryptTDESButton";
             this.decryptTDESButton.Size = new System.Drawing.Size(195, 55);
             this.decryptTDESButton.TabIndex = 11;
@@ -216,7 +254,7 @@
             this.importTDESKeyInXMLButton.Font = new System.Drawing.Font("Segoe UI Historic", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.importTDESKeyInXMLButton.Location = new System.Drawing.Point(23, 232);
             this.importTDESKeyInXMLButton.Name = "importTDESKeyInXMLButton";
-            this.importTDESKeyInXMLButton.Size = new System.Drawing.Size(195, 49);
+            this.importTDESKeyInXMLButton.Size = new System.Drawing.Size(144, 67);
             this.importTDESKeyInXMLButton.TabIndex = 10;
             this.importTDESKeyInXMLButton.Text = "Importar clave TDES de fichero XML";
             this.importTDESKeyInXMLButton.UseVisualStyleBackColor = false;
@@ -250,15 +288,6 @@
             this.generateRSAKeysSlaveButton.UseVisualStyleBackColor = false;
             this.generateRSAKeysSlaveButton.Click += new System.EventHandler(this.generateRSAKeysSlaveButton_Click);
             // 
-            // encryptedTextLabel
-            // 
-            this.encryptedTextLabel.AutoSize = true;
-            this.encryptedTextLabel.Location = new System.Drawing.Point(26, 546);
-            this.encryptedTextLabel.MaximumSize = new System.Drawing.Size(520, 0);
-            this.encryptedTextLabel.Name = "encryptedTextLabel";
-            this.encryptedTextLabel.Size = new System.Drawing.Size(0, 13);
-            this.encryptedTextLabel.TabIndex = 18;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -277,6 +306,21 @@
             this.fileSelector.InitialDirectory = "C:\\Users\\David23\\Desktop\\Uneatlántico\\Ciclo VI\\Seguridad Informática y Criptograf" +
     "ía\\DiatoCript\\DiatoCript\\bin\\Debug";
             this.fileSelector.Title = "Seleccione el archivo a importar";
+            // 
+            // Slave
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(590, 776);
+            this.Controls.Add(this.panel2);
+            this.Name = "Slave";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Slave";
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -292,12 +336,16 @@
         private System.Windows.Forms.Button generateRSAKeysSlaveButton;
         private System.Windows.Forms.Button exportXMLpublicKeyButton;
         private System.Windows.Forms.Button importTDESKeyInXMLButton;
-        private System.Windows.Forms.Label importedMasterTDESKeyLabel;
+        private System.Windows.Forms.Label importedMasterTDESKey1Label;
         private System.Windows.Forms.Button decryptTDESButton;
-        private System.Windows.Forms.Label decryptedMasterTDESKeyLabel;
+        private System.Windows.Forms.Label decryptedMasterTDESKey1Label;
         private System.Windows.Forms.RichTextBox textToEncryptInput;
         private System.Windows.Forms.Button EncryptTextButton;
         private System.Windows.Forms.Button exportMessageButton;
         private System.Windows.Forms.Label encryptedTextLabel;
+        private System.Windows.Forms.Label importedMasterTDESKey3Label;
+        private System.Windows.Forms.Label importedMasterTDESKey2Label;
+        private System.Windows.Forms.Label decryptedMasterTDESKey3Label;
+        private System.Windows.Forms.Label decryptedMasterTDESKey2Label;
     }
 }

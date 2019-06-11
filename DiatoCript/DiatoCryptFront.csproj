@@ -60,6 +60,9 @@
     </Compile>
     <Compile Include="CryptoSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Master.resx">
+      <DependentUpon>Master.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Slave.resx">
       <DependentUpon>Slave.cs</DependentUpon>
     </EmbeddedResource>

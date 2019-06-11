@@ -1,6 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<clavepublica>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;RSAParameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;Exponent&gt;AQAB&lt;/Exponent&gt;
-  &lt;Modulus&gt;464e37d8xMzDDTLNFS/j8KGgkwVjkBcHEXjp1QQVUNnp206hESM2w9UCAbPQxavk60dcUPGqVii6fU7ocMYuv1Q8bemoBrTssIQESBbX2MKdL/zTEcxx/dnvItpDkosTeleRyfuazpmNHoINMrpnC+2czl04+VdaAq0EEbUM9nU=&lt;/Modulus&gt;
-&lt;/RSAParameters&gt;</clavepublica>
+<root>
+  <clavepublica>&lt;RSAKeyValue&gt;&lt;Modulus&gt;n6BmBGE++6kbtLWQn/quCUsNsQ2ZxqQ5Q7vI3tt7lIIDVechJc4JXMLlVhoqziIgrTthNuJglCQkatsjNf86GINESg+P84M4JJ7EfieY2Vyk3w5u//zlLvIXMhoCl5ZKdljO/y8wPPTnlaPcTm1N0p+L47TfQfCvX12qUO4P78E=&lt;/Modulus&gt;&lt;Exponent&gt;AQAB&lt;/Exponent&gt;&lt;/RSAKeyValue&gt;</clavepublica>
+</root>

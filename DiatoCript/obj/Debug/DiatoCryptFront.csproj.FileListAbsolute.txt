@@ -1,0 +1,14 @@
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCript\bin\Debug\DiatoCript.exe.config
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCript\bin\Debug\DiatoCript.exe
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCript\bin\Debug\DiatoCript.pdb
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCript\bin\Debug\DiatoCryptBack.dll
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCript\bin\Debug\DiatoCryptBack.pdb
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCript\obj\Debug\DiatoCryptFront.csprojAssemblyReference.cache
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCript\obj\Debug\DiatoCript.Slave.resources
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCript\obj\Debug\DiatoCript.Properties.Resources.resources
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCript\obj\Debug\DiatoCryptFront.csproj.GenerateResource.cache
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCript\obj\Debug\DiatoCryptFront.csproj.CoreCompileInputs.cache
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCript\obj\Debug\DiatoCryptFront.csproj.CopyComplete
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCript\obj\Debug\DiatoCript.exe
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCript\obj\Debug\DiatoCript.pdb
+C:\Users\David23\Desktop\Uneatlántico\Ciclo VI\Seguridad Informática y Criptografía\DiatoCript\DiatoCript\obj\Debug\DiatoCript.Master.resources

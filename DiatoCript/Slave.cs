@@ -57,7 +57,17 @@ namespace DiatoCript
             DialogResult dr = fileSelector.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                importedMasterTDESKeyLabel.Text = slaveController.importTDESKeyInXML(fileSelector.FileName);
+                string[] data = slaveController.importTDESKeyInXML(fileSelector.FileName);
+                if (data != null)
+                {
+                    importedMasterTDESKey1Label.Text = data[0];
+                    importedMasterTDESKey2Label.Text = data[1];
+                    importedMasterTDESKey3Label.Text = data[2];
+                }
+                else
+                {
+                    MessageBox.Show("El formato no es correcto");
+                }
             }
         }
 
@@ -65,7 +75,11 @@ namespace DiatoCript
         {
             try
             {
-                decryptedMasterTDESKeyLabel.Text = slaveController.decryptTDESKey(importedMasterTDESKeyLabel.Text);
+                string[] data = slaveController.decryptTDESKey(importedMasterTDESKey1Label.Text, importedMasterTDESKey2Label.Text, importedMasterTDESKey3Label.Text);
+
+                decryptedMasterTDESKey1Label.Text = data[0];
+                decryptedMasterTDESKey2Label.Text = data[1];
+                decryptedMasterTDESKey3Label.Text = data[2];
             }
             catch (Exception ex)
             {
@@ -90,7 +104,7 @@ namespace DiatoCript
 
         private void EncryptTextButton_Click(object sender, EventArgs e)
         {
-            encryptedTextLabel.Text = slaveController.encryptText(textToEncryptInput.Text, decryptedMasterTDESKeyLabel.Text);
+            encryptedTextLabel.Text = slaveController.encryptText(textToEncryptInput.Text, decryptedMasterTDESKey1Label.Text, decryptedMasterTDESKey2Label.Text, decryptedMasterTDESKey3Label.Text);
         }
 
     }

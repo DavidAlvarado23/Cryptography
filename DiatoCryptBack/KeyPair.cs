@@ -11,7 +11,5 @@ namespace DiatoCryptBack
 
         public String privateKey { get; set; }
         public String publicKey { get; set; }
-        public String serializedPublicKey { get; set; }
-        public String serializedPrivateKey { get; set; }
     }
 }

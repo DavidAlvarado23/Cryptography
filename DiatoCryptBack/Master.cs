@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
 
 namespace DiatoCryptBack
@@ -7,11 +9,14 @@ namespace DiatoCryptBack
     public class Master : AbstractUser
     {
         RSACryptoServiceProvider slaveRSA;
-        public String tdesKey { get; set; }
+        public String tdesKey1 { get; set; }
+        public String tdesKey2 { get; set; }
+        public String tdesKey3 { get; set; }
         public String tdesIVEncrypted { get; set; }
 
         public Master()
         {
+            RSA.KeySize = 512;
             TDES = new TripleDESCryptoServiceProvider();
         }
 
@@ -25,26 +30,28 @@ namespace DiatoCryptBack
 
         public void generateTDESKey()
         {
-            if (tdesKey == null)
+            if (tdesKey1 == null && tdesKey2 == null && tdesKey3 == null)
             {
                 TDES.GenerateKey();
                 TDES.GenerateIV();
-                tdesKey = Convert.ToBase64String(TDES.Key);
+
+                Console.WriteLine("Original Key: " + Convert.ToBase64String(TDES.Key));
+
+                tdesKey1 = BitConverter.ToString(TDES.Key.Take(8).ToArray()).Replace("-", "");
+                tdesKey2 = BitConverter.ToString(TDES.Key.Skip(8).Take(8).ToArray()).Replace("-", "");
+                tdesKey3 = BitConverter.ToString(TDES.Key.Skip(16).Take(8).ToArray()).Replace("-", "");
             }
         }
 
         public void saveSlavePublicKey(String serializedPublicKey)
         {
-            var sr = new System.IO.StringReader(serializedPublicKey);
-            var xs = new System.Xml.Serialization.XmlSerializer(typeof(RSAParameters));
-            RSAParameters publicKey = (RSAParameters)xs.Deserialize(sr);
 
             if (slaveRSA == null)
             {
                 slaveRSA = new RSACryptoServiceProvider();
             }
 
-            slaveRSA.ImportParameters(publicKey);
+            slaveRSA.FromXmlString(serializedPublicKey);
         }
 
         public String getSlavePublicKey()
@@ -54,14 +61,25 @@ namespace DiatoCryptBack
             return Convert.ToBase64String(RSAKeyInfo.Modulus);
         }
 
-        public String encryptTDESKeyWithSlavePublicKey()
+        public string[] encryptTDESKeyWithSlavePublicKey()
         {
             if (slaveRSA != null)
             {
-                tdesIVEncrypted = Convert.ToBase64String(slaveRSA.Encrypt(TDES.IV, false));
 
-                var bytesPlainTextData = System.Text.Encoding.Unicode.GetBytes(tdesKey);
-                return Convert.ToBase64String(slaveRSA.Encrypt(bytesPlainTextData, false));
+                var a = Convert.FromBase64String(BitConverter.ToString(TDES.IV).Replace("-", ""));
+                var ivEncrypted = slaveRSA.Encrypt(a, false);
+                tdesIVEncrypted = BitConverter.ToString(ivEncrypted).Replace("-", "");
+
+                byte[] tdesKey1Encrypted = slaveRSA.Encrypt(Convert.FromBase64String(tdesKey1), false);
+                byte[] tdesKey2Encrypted = slaveRSA.Encrypt(Convert.FromBase64String(tdesKey2), false);
+                byte[] tdesKey3Encrypted = slaveRSA.Encrypt(Convert.FromBase64String(tdesKey3), false);
+
+                return new string[3]
+                {
+                    BitConverter.ToString(tdesKey1Encrypted).Replace("-", ""),
+                    BitConverter.ToString(tdesKey2Encrypted).Replace("-", ""),
+                    BitConverter.ToString(tdesKey3Encrypted).Replace("-", "")
+                };
             }
             return null;
         }

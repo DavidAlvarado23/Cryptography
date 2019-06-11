@@ -24,10 +24,11 @@ namespace DiatoCryptBack
             return master.keys;
         }
 
-        public String generateTDESKey()
+        public string[] generateTDESKey()
         {
             master.generateTDESKey();
-            return master.tdesKey;
+
+            return new string[3] { master.tdesKey1, master.tdesKey2, master.tdesKey3 };
         }
 
         public String importXMLWithPublicKey(String fileName)
@@ -56,19 +57,21 @@ namespace DiatoCryptBack
             }
         }
 
-        public String encryptTDESKeyWithSlavePublicKey()
+        public string[] encryptTDESKeyWithSlavePublicKey()
         {
             return master.encryptTDESKeyWithSlavePublicKey();
         }
 
-        public bool exportXMLWithEncryptedTDES(String encryptedData)
+        public bool exportXMLWithEncryptedTDES(String encryptedData, String encryptedData2, String encryptedData3)
         {
             if (encryptedData != null && encryptedData != "")
             {
                 new XDocument(
-                    new XElement("tdes",
+                    new XElement("root",
                         new XElement("tdes1", encryptedData),
-                        new XElement("tdes1iv", master.tdesIVEncrypted)
+                        new XElement("tdes2", encryptedData2),
+                        new XElement("tdes3", encryptedData3),
+                        new XElement("iv", master.tdesIVEncrypted)
                     )
                 ).Save("tdesencriptado.xml");
 

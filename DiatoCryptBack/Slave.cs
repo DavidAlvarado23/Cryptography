@@ -12,6 +12,11 @@ namespace DiatoCryptBack
     {
         public String tdesIVMasterEncrypted { get; set; }
 
+        public Slave()
+        {
+            RSA.KeySize = 512;
+        }
+
         public void generateRSAKeys()
         {
             RSAParameters RSAKeyInfo = RSA.ExportParameters(true);
@@ -20,32 +25,24 @@ namespace DiatoCryptBack
             keys.privateKey = Convert.ToBase64String(RSAKeyInfo.D);
         }
 
-        public void generatedSerializedKeys()
-        {
-            var sw = new StringWriter();
-            var xs = new System.Xml.Serialization.XmlSerializer(typeof(RSAParameters));
-
-            var pubKey = RSA.ExportParameters(false);
-            xs.Serialize(sw, pubKey);
-            keys.serializedPublicKey = sw.ToString();
-
-            var privKey = RSA.ExportParameters(true);
-            xs.Serialize(sw, privKey);
-            keys.serializedPrivateKey = sw.ToString();
-        }
-
-        public String decryptTDESKey(String encryptedData)
+        public string[] decryptTDESKey(String encryptedData, String encryptedData2, String encryptedData3)
         {
             if (encryptedData != null && !encryptedData.Equals(""))
             {
                 try
                 {
-                    var bytesCypherText = Convert.FromBase64String(encryptedData);
                     RSA.ImportParameters(RSA.ExportParameters(true));
 
-                    var bytesPlainTextData = RSA.Decrypt(bytesCypherText, false);
+                    var bytesPlainTextData = RSA.Decrypt(fromHexToByte(encryptedData), false);
+                    var bytesPlainTextData2 = RSA.Decrypt(fromHexToByte(encryptedData2), false);
+                    var bytesPlainTextData3 = RSA.Decrypt(fromHexToByte(encryptedData3), false);
 
-                    return Encoding.Unicode.GetString(bytesPlainTextData);
+                    return new string[3]
+                    {
+                        Convert.ToBase64String(bytesPlainTextData),
+                        Convert.ToBase64String(bytesPlainTextData2),
+                        Convert.ToBase64String(bytesPlainTextData3)
+                    };
                 }
                 catch (Exception e)
                 {
@@ -55,15 +52,31 @@ namespace DiatoCryptBack
             return null;
         }
 
-        public String encryptText(String text, String tdesKey)
+        private byte[] fromHexToByte(String hex)
         {
-            if (tdesKey != null && !tdesKey.Equals("") && text != null && !text.Equals(""))
+            return Enumerable.Range(0, hex.Length)
+                     .Where(x => x % 2 == 0)
+                     .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+                     .ToArray();
+        }
+
+        public String encryptText(String text, String tdesKey1, String tdesKey2, String tdesKey3)
+        {
+            if (tdesKey1 != null && !tdesKey1.Equals("") && text != null && !text.Equals(""))
             {
-                TDES.Key = Convert.FromBase64String(tdesKey);
+                byte[] key1bytes = fromHexToByte(tdesKey1);
+                byte[] key2bytes = fromHexToByte(tdesKey2);
+                byte[] key3bytes = fromHexToByte(tdesKey3);
 
-                byte[] iv = Encoding.Unicode.GetBytes(decryptTDESKey(tdesIVMasterEncrypted));
+                var tdesKey = new byte[key1bytes.Length + key2bytes.Length + key3bytes.Length];
+                key1bytes.CopyTo(tdesKey, 0);
+                key2bytes.CopyTo(tdesKey, key1bytes.Length);
+                key3bytes.CopyTo(tdesKey, key1bytes.Length + key2bytes.Length);
 
-                TDES.IV = Convert.FromBase64String(Convert.ToBase64String(iv));
+                TDES.Key = tdesKey;
+
+                byte[] ivInHex = RSA.Decrypt(fromHexToByte(tdesIVMasterEncrypted), false);
+                TDES.IV = fromHexToByte(Convert.ToBase64String(ivInHex));
 
                 ICryptoTransform encryptor = TDES.CreateEncryptor(TDES.Key, TDES.IV);
 
