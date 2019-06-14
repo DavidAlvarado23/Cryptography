@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace DiatoCryptBack
 {
+    /**
+     * Clase KeyPair.
+     * Almacena un par de llaves.
+     **/
     public class KeyPair
     {
-
         public String privateKey { get; set; }
         public String publicKey { get; set; }
     }

@@ -13,12 +13,18 @@ namespace DiatoCryptBack
             slave = new Slave();
         }
 
+        /**
+         * Genera y guarda el par de claves.
+         **/
         public KeyPair generateKeyPairRSA()
         {
             slave.generateRSAKeys();
             return slave.keys;
         }
 
+        /**
+         * Exporta la llave publica a un fichero xml.
+         **/
         public bool exportXMLWithPublicKey()
         {
             if (slave.keys.publicKey != null)
@@ -33,6 +39,11 @@ namespace DiatoCryptBack
             return false;
         }
 
+        /**
+         * Importa con un fichero con una formato
+         * que contiene 3 llaves o etiquetas junto con
+         * el modulo, esto para generar una llave TDES.
+         **/
         public string[] importTDESKeyInXML(String fileName)
         {
             if (fileName.EndsWith(".xml"))
@@ -59,16 +70,26 @@ namespace DiatoCryptBack
             return null;
         }
 
+        /**
+         * Desencripta las llaves dadas.
+         **/
         public string[] decryptTDESKey(String encryptedData, String encryptedData2, String encryptedData3)
         {
             return slave.decryptTDESKey(encryptedData, encryptedData2, encryptedData3);
         }
 
+        /**
+         * Dado un texto lo encripta con el algoritmo
+         * RSA.
+         **/
         public String encryptText(String text, String tdesKey1, String tdesKey2, String tdesKey3)
         {
             return slave.encryptText(text, tdesKey1, tdesKey2, tdesKey3);
         }
 
+        /**
+         * Exporta el mensaje encriptado a un fichero xml.
+         **/
         public bool exportXMLWithEncryptedText(String encryptedText)
         {
             if (encryptedText != null)

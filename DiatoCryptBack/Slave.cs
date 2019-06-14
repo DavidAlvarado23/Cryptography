@@ -17,6 +17,9 @@ namespace DiatoCryptBack
             RSA.KeySize = 512;
         }
 
+        /**
+         * Genera y guarda el par de claves.
+         */
         public void generateRSAKeys()
         {
             RSAParameters RSAKeyInfo = RSA.ExportParameters(true);
@@ -25,6 +28,11 @@ namespace DiatoCryptBack
             keys.privateKey = Convert.ToBase64String(RSAKeyInfo.D);
         }
 
+        /**
+         * Dadas las 3 llaves encriptadas, este las desencripta
+         * con la llave privada y devuelve un array con estas
+         * llaves desencriptadas.
+         **/
         public string[] decryptTDESKey(String encryptedData, String encryptedData2, String encryptedData3)
         {
             if (encryptedData != null && !encryptedData.Equals(""))
@@ -52,6 +60,10 @@ namespace DiatoCryptBack
             return null;
         }
 
+        /**
+         * Método privado que nos convierte de string de hexadecimal
+         * a un array de bytes.
+         **/
         private byte[] fromHexToByte(String hex)
         {
             return Enumerable.Range(0, hex.Length)
@@ -60,6 +72,10 @@ namespace DiatoCryptBack
                      .ToArray();
         }
 
+        /**
+         * Con un texto dado, este lo encripta con la
+         * llave generada del TDES que ha recibido anteriormente.
+         **/
         public String encryptText(String text, String tdesKey1, String tdesKey2, String tdesKey3)
         {
             if (tdesKey1 != null && !tdesKey1.Equals("") && text != null && !text.Equals(""))

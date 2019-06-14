@@ -1,4 +1,6 @@
-﻿namespace DiatoCript
+﻿using System.IO;
+
+namespace DiatoCript
 {
     partial class Master
     {
@@ -331,8 +333,7 @@
             this.fileSelector.DefaultExt = "xml";
             this.fileSelector.FileName = "cp_esclavo.xml";
             this.fileSelector.Filter = "Fichero XML (*.xml)|*.xml;";
-            this.fileSelector.InitialDirectory = "C:\\Users\\David23\\Desktop\\Uneatlántico\\Ciclo VI\\Seguridad Informática y Criptograf" +
-    "ía\\DiatoCript\\DiatoCript\\bin\\Debug";
+            this.fileSelector.InitialDirectory = Directory.GetCurrentDirectory();
             this.fileSelector.Title = "Seleccione el archivo a importar";
             // 
             // Master

@@ -6,6 +6,13 @@ using System.Security.Cryptography;
 
 namespace DiatoCryptBack
 {
+    /**
+     * Clase Master que extiende de la clase abstracta AbstractUser.
+     * Tiene un RSA para guardar la clave del esclavo que posteriormente
+     * recibe. También, tiene 3 propiedades para guardas las diferentes 
+     * llaves del TDES y su módulo. Las otras propiedades son las que 
+     * contiene la clase abstracta.
+     **/
     public class Master : AbstractUser
     {
         RSACryptoServiceProvider slaveRSA;
@@ -20,6 +27,9 @@ namespace DiatoCryptBack
             TDES = new TripleDESCryptoServiceProvider();
         }
 
+        /**
+         * Genera y guarda el par de claves.
+         **/
         public void generateRSAKeys()
         {
             RSAParameters RSAKeyInfo = RSA.ExportParameters(true);
@@ -28,6 +38,10 @@ namespace DiatoCryptBack
             keys.privateKey = Convert.ToBase64String(RSAKeyInfo.D);
         }
 
+        /**
+         * Genera las llaves para el TDES si no hay llaves.
+         * Luego estas pasan a un string hexadecimal.
+         */
         public void generateTDESKey()
         {
             if (tdesKey1 == null && tdesKey2 == null && tdesKey3 == null)
@@ -43,6 +57,10 @@ namespace DiatoCryptBack
             }
         }
 
+        /**
+         * Guarda la llave del esclavo en su clase RSACryptoServiceProvider.
+         * Lo hace gracias al import de un xml que esta clase tiene.
+         **/
         public void saveSlavePublicKey(String serializedPublicKey)
         {
 
@@ -54,6 +72,9 @@ namespace DiatoCryptBack
             slaveRSA.FromXmlString(serializedPublicKey);
         }
 
+        /**
+         * Devuelve la llave guardada del esclavo.
+         **/
         public String getSlavePublicKey()
         {
             RSAParameters RSAKeyInfo = slaveRSA.ExportParameters(false);
@@ -61,6 +82,11 @@ namespace DiatoCryptBack
             return Convert.ToBase64String(RSAKeyInfo.Modulus);
         }
 
+        /**
+         * Encripta las llaves TDES generadas con el algoritmo
+         * RSA y con la llave pública del esclavo. Luego estas son 
+         * convertidas a un string hexadecimal.
+         **/
         public string[] encryptTDESKeyWithSlavePublicKey()
         {
             if (slaveRSA != null)
@@ -84,6 +110,10 @@ namespace DiatoCryptBack
             return null;
         }
 
+        /**
+         * Método privado que nos convierte de string de hexadecimal
+         * a un array de bytes.
+         **/
         private byte[] fromHexToByte(String hex)
         {
             return Enumerable.Range(0, hex.Length)
@@ -92,6 +122,10 @@ namespace DiatoCryptBack
                      .ToArray();
         }
 
+        /**
+         * Recibe un texto presuntamente encriptado, este
+         * lo desencripta con su llave del TDES generada.
+         **/
         public String decryptText(String encryptedText)
         {
             if (encryptedText != null && !encryptedText.Equals(""))
