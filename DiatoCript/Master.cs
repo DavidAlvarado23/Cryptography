@@ -5,6 +5,15 @@ using DiatoCryptBack;
 
 namespace DiatoCript
 {
+    /**
+     * Clase que extiende de Form
+     * La clase que contiene el control de eventos que se 
+     * lanzaran desde la aplicación. Este tiene una instancia
+     * del controlador del maestro para hacer las diferentes
+     * funciones que necesita para funcionar como maestro.
+     * Tiene una instancia del formulario (vista) del esclavo
+     * para poder generar las llaves de ambos a la vez.
+     **/
     public partial class Master : Form
     {
         MasterController masterController;
