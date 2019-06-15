@@ -50,6 +50,7 @@ namespace DiatoCryptBack
                 TDES.GenerateIV();
 
                 Console.WriteLine("Original Key: " + Convert.ToBase64String(TDES.Key));
+                Console.WriteLine("Hex Key: " + BitConverter.ToString(TDES.Key).Replace("-", ""));
 
                 tdesKey1 = BitConverter.ToString(TDES.Key.Take(8).ToArray()).Replace("-", "");
                 tdesKey2 = BitConverter.ToString(TDES.Key.Skip(8).Take(8).ToArray()).Replace("-", "");
@@ -92,13 +93,12 @@ namespace DiatoCryptBack
             if (slaveRSA != null)
             {
 
-                var a = Convert.FromBase64String(BitConverter.ToString(TDES.IV).Replace("-", ""));
-                var ivEncrypted = slaveRSA.Encrypt(a, false);
+                var ivEncrypted = slaveRSA.Encrypt(fromHexToByte(BitConverter.ToString(TDES.IV).Replace("-", "")), true);
                 tdesIVEncrypted = BitConverter.ToString(ivEncrypted).Replace("-", "");
 
-                byte[] tdesKey1Encrypted = slaveRSA.Encrypt(Convert.FromBase64String(tdesKey1), false);
-                byte[] tdesKey2Encrypted = slaveRSA.Encrypt(Convert.FromBase64String(tdesKey2), false);
-                byte[] tdesKey3Encrypted = slaveRSA.Encrypt(Convert.FromBase64String(tdesKey3), false);
+                byte[] tdesKey1Encrypted = slaveRSA.Encrypt(fromHexToByte(tdesKey1), true);
+                byte[] tdesKey2Encrypted = slaveRSA.Encrypt(fromHexToByte(tdesKey2), true);
+                byte[] tdesKey3Encrypted = slaveRSA.Encrypt(fromHexToByte(tdesKey3), true);
 
                 return new string[3]
                 {
