@@ -41,15 +41,15 @@ namespace DiatoCryptBack
                 {
                     RSA.ImportParameters(RSA.ExportParameters(true));
 
-                    var bytesPlainTextData = RSA.Decrypt(fromHexToByte(encryptedData), false);
-                    var bytesPlainTextData2 = RSA.Decrypt(fromHexToByte(encryptedData2), false);
-                    var bytesPlainTextData3 = RSA.Decrypt(fromHexToByte(encryptedData3), false);
+                    var bytesPlainTextData = RSA.Decrypt(fromHexToByte(encryptedData), true);
+                    var bytesPlainTextData2 = RSA.Decrypt(fromHexToByte(encryptedData2), true);
+                    var bytesPlainTextData3 = RSA.Decrypt(fromHexToByte(encryptedData3), true);
 
                     return new string[3]
                     {
-                        Convert.ToBase64String(bytesPlainTextData),
-                        Convert.ToBase64String(bytesPlainTextData2),
-                        Convert.ToBase64String(bytesPlainTextData3)
+                        BitConverter.ToString(bytesPlainTextData).Replace("-", ""),
+                         BitConverter.ToString(bytesPlainTextData2).Replace("-", ""),
+                        BitConverter.ToString(bytesPlainTextData3).Replace("-", "")
                     };
                 }
                 catch (Exception e)
@@ -91,8 +91,8 @@ namespace DiatoCryptBack
 
                 TDES.Key = tdesKey;
 
-                byte[] ivInHex = RSA.Decrypt(fromHexToByte(tdesIVMasterEncrypted), false);
-                TDES.IV = fromHexToByte(Convert.ToBase64String(ivInHex));
+                byte[] ivInHex = RSA.Decrypt(fromHexToByte(tdesIVMasterEncrypted), true);
+                TDES.IV = ivInHex;
 
                 ICryptoTransform encryptor = TDES.CreateEncryptor(TDES.Key, TDES.IV);
 

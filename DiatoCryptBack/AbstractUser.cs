@@ -11,7 +11,7 @@ namespace DiatoCryptBack
      **/
     public abstract class AbstractUser
     {
-        public RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
+        public RSACryptoServiceProvider RSA = new RSACryptoServiceProvider(512);
         public TripleDESCryptoServiceProvider TDES = new TripleDESCryptoServiceProvider();
 
         public KeyPair keys = new KeyPair();

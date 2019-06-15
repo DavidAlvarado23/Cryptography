@@ -57,6 +57,7 @@ namespace DiatoCript
             // 
             // panel2
             // 
+            this.panel2.AutoSize = true;
             this.panel2.BackColor = System.Drawing.Color.Honeydew;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.importedMasterTDESKey3Label);
@@ -305,13 +306,16 @@ namespace DiatoCript
             this.fileSelector.DefaultExt = "xml";
             this.fileSelector.FileName = "cp_esclavo.xml";
             this.fileSelector.Filter = "Fichero XML (*.xml)|*.xml;";
-            this.fileSelector.InitialDirectory = Directory.GetCurrentDirectory();
+            this.fileSelector.InitialDirectory = "C:\\Users\\David23\\Desktop\\Uneatlántico\\Ciclo VI\\Seguridad Informática y Criptograf" +
+    "ía\\DiatoCript";
             this.fileSelector.Title = "Seleccione el archivo a importar";
             // 
             // Slave
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(590, 776);
             this.Controls.Add(this.panel2);
@@ -321,6 +325,7 @@ namespace DiatoCript
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
